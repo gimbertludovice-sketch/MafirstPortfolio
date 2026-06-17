@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semantic HTML — Gimbert Ludovice</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; }
+    .wrapper {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.1);
+    }
+    header {
+      background: linear-gradient(135deg, #0f2747, #1a3f6f);
+      color: #fff;
+      padding: 36px 40px 30px;
+      position: relative;
+    }
+    header h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 4px; }
+    header p  { font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.65; }
+    nav {
+      background: #14305c;
+      padding: 0 40px;
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    nav a {
+      display: inline-block;
+      padding: 12px 18px;
+      color: #90b4d8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s;
+    }
+    nav a:first-child { color: #5ba3e8; border-bottom-color: #5ba3e8; }
+    nav a:hover { color: #fff; border-bottom-color: #5ba3e8; }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 28px 40px;
+      background: #f7fafd;
+    }
+    section, article {
+      background: #fff;
+      border: 1px solid #dde6f0;
+      border-radius: 10px;
+      padding: 22px 24px;
+    }
+    .tag-label {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #3a7cc7;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    section h3, article h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a2f4a;
+      margin-bottom: 8px;
+    }
+    section p, article p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    footer {
+      background: #0d1e34;
+      padding: 16px 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    footer p {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6a8caa;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <h1>Gimbert Ludovice</h1>
+      <p>BS Information Technology — 1st Year Level</p>
+    </header>
+
+    <nav aria-label="Main Navigation">
+      <a href="aboutme.html"   title="About Me">About Me</a>
+      <a href="gallery.html"   title="Gallery">Gallery</a>
+      <a href="register.html"  title="Register">Register</a>
+    </nav>
+
+    <main>
+      <section>
+        <div class="tag-label">&lt; section &gt;</div>
+        <h3>Profile</h3>
+        <p>
+          I am a first-year BSIT student focused on mobile and web development.
+          I am passionate about building clean, accessible, and functional websites
+          using modern web technologies.
+        </p>
+      </section>
+
+      <article>
+        <div class="tag-label">&lt; article &gt;</div>
+        <h3>Goals</h3>
+        <p>
+          My goal is to become a full-stack developer. Currently learning HTML5,
+          CSS3, and JavaScript — planning to explore React and Vue in my later
+          college years.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <p><center>Bachelor of Science in Information Technology &mdash; 1st Year Level</center></p>
+    </footer>
+
+  </div>
+</body>
+</html>

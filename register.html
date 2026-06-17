@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration — Gimbert Ludovice</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 36px rgba(0,0,0,0.12);
+      max-width: 460px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(135deg, #4c1d95, #6d28d9);
+      padding: 36px 40px 28px;
+      color: #fff;
+    }
+    .card-header h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .card-header p { font-size: 0.82rem; opacity: 0.75; }
+    .card-body { padding: 32px 40px 36px; }
+    .field { margin-bottom: 20px; }
+    .field label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 7px;
+      letter-spacing: 0.2px;
+    }
+    .req { color: #ef4444; }
+    .field input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #d1dae6;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: #1a2f4a;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #fafbfc;
+    }
+    .field input::placeholder { color: #aab4c0; font-size: 0.85rem; }
+    .field input:focus {
+      border-color: #6d28d9;
+      background: #faf7ff;
+      box-shadow: 0 0 0 4px rgba(109,40,217,0.1);
+    }
+    .field input:valid:not(:placeholder-shown) {
+      border-color: #22c55e;
+    }
+    .pw-wrap { position: relative; }
+    .pw-wrap input { padding-right: 46px; }
+    .pw-toggle {
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #9ca3af;
+      padding: 0;
+    }
+    .pw-toggle:hover { color: #6d28d9; }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0 20px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e5eaf0;
+    }
+    .divider span {
+      font-size: 0.65rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #6d28d9, #4c1d95);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(109,40,217,0.35);
+      transition: opacity 0.2s, transform 0.15s;
+      letter-spacing: 0.3px;
+    }
+    .btn-submit:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(109,40,217,0.4);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    #success-msg {
+      display: none;
+      margin-top: 18px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #15803d;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <h1>Create Account</h1>
+      <p>Fill in your details to register as a student.</p>
+    </div>
+
+    <div class="card-body">
+
+      <div class="field">
+        <label for="fullname">👤 Full Name <span class="req">*</span></label>
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          placeholder="e.g. Gimbert Ludovice"
+          required
+          autocomplete="name"
+          title="Enter your full name"/>
+      </div>
+
+      <div class="field">
+        <label for="email">📧 Email Address <span class="req">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="e.g. gimbert@email.com"
+          required
+          autocomplete="email"
+          title="Enter a valid email address"/>
+      </div>
+
+      <div class="field">
+        <label for="dob">🗓️ Date of Birth <span class="req">*</span></label>
+        <input
+          type="date"
+          id="dob"
+          name="dob"
+          required
+          max="2010-12-31"
+          title="Select your date of birth"/>
+      </div>
+
+      <div class="field">
+        <label for="password">🔑 Password <span class="req">*</span></label>
+        <div class="pw-wrap">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Minimum 8 characters"
+            required
+            minlength="8"
+            autocomplete="new-password"
+            title="Password must be at least 8 characters"/>
+          <button type="button" class="pw-toggle" id="pwToggle"
+            onclick="document.getElementById('password').type =
+              document.getElementById('password').type === 'password' ? 'text' : 'password'"
+            title="Show/hide password">👁️</button>
+        </div>
+      </div>
+
+      <div class="divider"><span>ready to join?</span></div>
+
+      <button type="button" class="btn-submit" onclick="submitForm()">
+        🚀 &nbsp; Register Now
+      </button>
+
+      <div id="success-msg">✅ Registration submitted successfully!</div>
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      const fn = document.getElementById('fullname').value.trim();
+      const em = document.getElementById('email').value.trim();
+      const db = document.getElementById('dob').value;
+      const pw = document.getElementById('password').value;
+      if (!fn || !em || !db || pw.length < 8) {
+        alert('Please fill in all required fields correctly.');
+        return;
+      }
+      document.getElementById('success-msg').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
